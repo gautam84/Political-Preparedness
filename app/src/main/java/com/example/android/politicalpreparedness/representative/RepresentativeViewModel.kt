@@ -19,7 +19,20 @@ class RepresentativeViewModel(application: Application) : AndroidViewModel(appli
     val address: LiveData<Address>
         get() = _address
 
+    val addressLine1 = MutableLiveData<String>()
+    val addressLine2 = MutableLiveData<String>()
+    val city = MutableLiveData<String>()
+    val state = MutableLiveData<String>()
+    val zip = MutableLiveData<String>()
+
     init {
+        addressLine1.value = ""
+        addressLine2.value = ""
+        city.value = ""
+        state.value = ""
+        zip.value = ""
+
+
         _address.value = Address("", "", "", "", "")
     }
 
@@ -47,7 +60,7 @@ class RepresentativeViewModel(application: Application) : AndroidViewModel(appli
 
     fun loadRepresentatives() {
         viewModelScope.launch {
-            getRepresentativesByAddress(_address.value)
+            getRepresentativesByAddress(Address(addressLine1.value!!,addressLine2.value,city.value!!,state.value!!,zip.value!!))
         }
     }
 

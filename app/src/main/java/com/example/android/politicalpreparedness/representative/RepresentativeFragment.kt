@@ -42,7 +42,7 @@ class DetailFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-         binding = FragmentRepresentativeBinding.inflate(inflater)
+        binding = FragmentRepresentativeBinding.inflate(inflater)
         binding.lifecycleOwner = this
         binding.viewModel = viewModel
 
@@ -59,15 +59,17 @@ class DetailFragment : Fragment() {
             })
 
         binding.buttonSearch.setOnClickListener {
-            hideKeyboard()
-            viewModel.loadRepresentatives()
+
+                hideKeyboard()
+                viewModel.loadRepresentatives()
+
         }
 
         binding.buttonLocation.setOnClickListener {
             hideKeyboard()
             checkLocationPermissions()
         }
-        
+
         return binding.root
 
     }
