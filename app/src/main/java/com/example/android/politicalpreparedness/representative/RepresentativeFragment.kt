@@ -36,12 +36,13 @@ class DetailFragment : Fragment() {
     private lateinit var representativesListAdapter: RepresentativeListAdapter
     private lateinit var binding: FragmentRepresentativeBinding
 
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentRepresentativeBinding.inflate(inflater)
+         binding = FragmentRepresentativeBinding.inflate(inflater)
         binding.lifecycleOwner = this
         binding.viewModel = viewModel
 
@@ -81,11 +82,11 @@ class DetailFragment : Fragment() {
             if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 getLocation()
             } else {
-                Snackbar.make(
-                    requireView(),
-                    "Location Permission is required to use this feature",
-                    Snackbar.LENGTH_LONG
-                ).show()
+//                Snackbar.make(
+//                    requireView(),
+//                    "Location Permission is required to use this feature",
+//                    Snackbar.LENGTH_LONG
+//                ).show()
             }
         }
     }

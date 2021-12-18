@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:motion="http://schemas.android.com/tools">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
         <variable
@@ -13,7 +12,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layoutDescription="@xml/fragment_representative_scene">
-
 
         <TextView
             android:id="@+id/search_title"
@@ -40,6 +38,7 @@
             android:layout_height="0dp"
             android:autofillHints=""
             android:hint="@string/address_line_2"
+            android:text="@={viewModel.address.line2}"
             android:inputType="textPostalAddress"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/address_line_1" />
@@ -50,6 +49,7 @@
             android:layout_height="wrap_content"
             android:autofillHints=""
             android:hint="@string/city"
+            android:text="@={viewModel.address.city}"
             android:inputType="textPostalAddress"
             app:layout_constraintEnd_toStartOf="@id/state"
             app:layout_constraintStart_toStartOf="parent"
@@ -61,6 +61,7 @@
             android:layout_height="0dp"
             android:autofillHints=""
             android:inputType="textPostalAddress"
+            android:text="@={viewModel.address.state}"
             app:layout_constraintBottom_toBottomOf="@id/city"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/city"
@@ -74,6 +75,7 @@
             android:hint="@string/zip"
             android:inputType="number"
             android:maxLength="5"
+            android:text="@={viewModel.address.zip}"
             app:layout_constraintEnd_toEndOf="@id/city"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/city" />
@@ -119,7 +121,6 @@
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/representative_title" />
-
 
     </androidx.constraintlayout.motion.widget.MotionLayout>
 </layout>
